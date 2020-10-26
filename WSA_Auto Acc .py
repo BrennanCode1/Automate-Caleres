@@ -1,13 +1,13 @@
 import pyautogui
-pyautogui.FAILSAFE = True
-pyautogui.PAUSE = 5.0
+import time
 
+pyautogui.FAILSAFE = True
 
 pyautogui.size()
 n=0
 x=5
 
-#Gathering Information for pkms and accountn ninfo
+#Gathering Information for pkms and account info
 Username= pyautogui.prompt('Username for PKMS')
 Password= pyautogui.password('Password for PKMS')
 acc_nums= pyautogui.prompt ('How many accounts do you want to create')
@@ -15,11 +15,16 @@ Temp=pyautogui.prompt('Cal1 temp or cal 2')
 #Opening pkms
 pyautogui.press('home')
 pyautogui.write('wsa')
+pyautogui.press('enter')
+time.sleep(10)
+pyautogui.write (Username)
+pyautogui.press('tab')
+pyautogui.write (Password)
+time.sleep(10)
 pyautogui.write (Username)
 pyautogui.press('tab')
 pyautogui.write (Password)
 pyautogui.write ('23')
-
 #Looping to create accounts and add in excel
 while acc_nums <= 0:
     Acc_Full_Name= pyautogui.prompt('Enter the full name of the account being create')
@@ -74,7 +79,7 @@ while acc_nums <= 0:
     pyautogui.press('f16')
     pyautogui.press('f12')
     pyautogui.press('f12')
-    acc_nums -=1
+    acc_nums-=1
     #Complete
     
 
